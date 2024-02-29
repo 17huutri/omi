@@ -5,10 +5,10 @@ import {
 
 const HomePage = () => {
 
-
   return (
     <Page className="page">
-      Hello Zalo Mini App
+      Home Page
+      
     </Page>
   );
 }
