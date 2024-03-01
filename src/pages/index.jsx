@@ -7,6 +7,7 @@ import {
 } from 'zmp-ui';
 import Recommend from '../components/recommend';
 import Banner from '../components/banner';
+import Navigation from '../components/navigation';
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
       <Banner />
       <Categoryv />
       <Recommend />
+      <Navigation />
     </Page>
   );
 }
