@@ -1,0 +1,64 @@
+// .navigation {
+//     position: fixed;
+//     display: flex; 
+//     justify-content: space-between;
+//     padding: 12px;
+//     bottom: 0;
+//     left: 0;
+//     width: 100%;
+//     background-color: #fff;
+//     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+//     z-index: 999;
+// }
+
+
+// .navigation-container {
+
+//     display: flex; // Đảm bảo các navigation nằm trên cùng một dòng
+//     justify-content: space-between; // Các navigation được phân bố đều trên cùng một hàng
+//     align-items: center; // Căn giữa các navigation theo chiều dọc
+//   }
+
+//   .navigation {
+//     margin: 0 10px; // Khoảng cách giữa các navigation
+//   }
+
+//   .category-icon {
+//     width: 20px; // Kích thước của biểu tượng category (điều chỉnh theo nhu cầu)
+//     height: 20px;
+//     margin-right: 5px; // Khoảng cách giữa biểu tượng và văn bản
+//   }
+
+//   .navigation-name {
+//     margin: 0; // Loại bỏ margin mặc định của văn bản
+//     font-size: 11px;
+//   }
+
+
+.navigation-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+    margin: 0;
+}
+
+.navigation-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 13px;
+}
+
+.navigation-name {
+    margin: 0;
+    font-size: 11px;
+}

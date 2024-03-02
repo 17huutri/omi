@@ -1,0 +1,15 @@
+.category {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: calc(22% - 20px); /* Adjust width to fit 4 items in a row */
+  margin: 20px; /* Adjust margin between items */
+  align-items: center;
+}
+
+.category-icon {
+  width: 60%; /* Ensure the icon fills the entire width of the item */
+  height: auto; /* Maintain aspect ratio */
+}
