@@ -42,6 +42,8 @@ const Navigation = () => {
         // In a real application, you will fetch data using fetch or axios
         setNavigations(mockNavigations);
     }, []);
+
+
     return (
         <Box>
             <div className="navigation-container">
@@ -66,8 +68,7 @@ const Navigation = () => {
                     </Link>
                 ))}
             </div> */}
-
-
+        
         </Box>
 
     );
