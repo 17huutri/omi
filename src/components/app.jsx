@@ -4,6 +4,7 @@ import { App, ZMPRouter, AnimationRoutes, SnackbarProvider } from 'zmp-ui';
 import { RecoilRoot } from 'recoil';
 import HomePage from '../pages';
 import BottomNavigationPage from './bottom-navigation'
+import SearchSuggestions from './searchSuggestions';
 
 
 
@@ -15,7 +16,7 @@ const MyApp = () => {
           <ZMPRouter>
             <AnimationRoutes>
               <Route path="/" element={<HomePage></HomePage>}></Route>
-
+              <Route path="/searchPage" element={<SearchSuggestions></SearchSuggestions>}></Route>
             </AnimationRoutes>
           </ZMPRouter>
         </SnackbarProvider>
