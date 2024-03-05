@@ -18,7 +18,7 @@ const mockNavigations = [
         "id": "cart",
         "name": "Giỏ hàng",
         "icon": "https://cdn-icons-png.freepik.com/512/8170/8170696.png",
-        "href": "/cart" // Thêm thuộc tính href vào để chuyển hướng đến /cart
+        "href": "/cart"
     },
     {
         "id": "notice",
@@ -28,7 +28,8 @@ const mockNavigations = [
     {
         "id": "account",
         "name": "Tài khoản",
-        "icon": "https://cdn-icons-png.flaticon.com/512/10453/10453654.png"
+        "icon": "https://cdn-icons-png.flaticon.com/512/10453/10453654.png",
+        "href": "/user-profile"
     },
 ];
 
