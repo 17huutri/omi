@@ -1,4 +1,3 @@
-// Detail1Component.jsx
 import React from 'react';
 
 const Detail1Component = () => {

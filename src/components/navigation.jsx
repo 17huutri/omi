@@ -1,7 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Icon } from "zmp-ui";
-
 
 import '../css/navigation.scss'
 
@@ -19,7 +17,8 @@ const mockNavigations = [
     {
         "id": "cart",
         "name": "Giỏ hàng",
-        "icon": "https://cdn-icons-png.freepik.com/512/8170/8170696.png"
+        "icon": "https://cdn-icons-png.freepik.com/512/8170/8170696.png",
+        "href": "/cart" // Thêm thuộc tính href vào để chuyển hướng đến /cart
     },
     {
         "id": "notice",
@@ -48,31 +47,16 @@ const Navigation = () => {
         <Box>
             <div className="navigation-container">
                 {navigations.map(navigation => (
-                    <div className="navigation" key={navigation.id}>
+                    <a href={navigation.href} className="navigation" key={navigation.id}>
                         <div className='info'>
                             <img className="navigation-icon" src={navigation.icon} alt={navigation.name} />
                             <p className="navigation-name">{navigation.name}</p>
                         </div>
-                    </div>
+                    </a>
                 ))}
             </div>
-
-            {/* Dành cho sau này chuyển route dùng router:
-            <div className="navigation-container">
-                {navigations.map(navigation => (
-                    <Link to={navigation.route} key={navigation.id} className="navigation">
-                        <div className='info'>
-                            <img className="navigation-icon" src={navigation.icon} alt={navigation.name} />
-                            <p className="navigation-name">{navigation.name}</p>
-                        </div>
-                    </Link>
-                ))}
-            </div> */}
-        
         </Box>
-
     );
 }
 
 export default Navigation;
-
