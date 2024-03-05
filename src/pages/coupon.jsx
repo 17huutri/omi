@@ -1,6 +1,5 @@
 import React from 'react';
 import Coupon from '../components/coupon';
-import Navigation from '../components/navigation';
 import {
   Page
 } from 'zmp-ui';
@@ -8,9 +7,8 @@ import {
 const Coupon = () => {
   return (
     <Page className="home">
-     
-      <Coupon/>      
-      <Navigation />    
+
+      <Coupon />
     </Page>
   );
 }
