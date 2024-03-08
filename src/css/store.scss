@@ -1,0 +1,38 @@
+.store {
+    // CSS cho thành phần "store" nếu cần
+}
+
+.store-box {
+    background-color: #4682B4;
+    color: white;
+
+
+
+    h1{
+        font-size: 22px;
+        margin: 4px;
+        padding-top: 2px;
+    }   
+}
+
+.store-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .store-info {
+        width: calc(25% - 10px);
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .store-logo {
+        width: 63.3px;
+        height:  63.3px;
+        align-items: center;
+        margin-left: 10px;
+        border-radius: 20px;
+    }
+}
