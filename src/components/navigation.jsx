@@ -7,7 +7,8 @@ const mockNavigations = [
     {
         "id": "products",
         "name": "Trang chủ",
-        "icon": "https://cdn-icons-png.flaticon.com/128/9643/9643115.png"
+        "icon": "https://cdn-icons-png.flaticon.com/128/9643/9643115.png",
+        "href":"/"
     },
     {
         "id": "vouchers",
