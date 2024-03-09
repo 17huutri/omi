@@ -7,12 +7,14 @@ const mockNavigations = [
     {
         "id": "products",
         "name": "Sản phẩm",
-        "icon": "https://icon-library.com/images/icon-menu/icon-menu-10.jpg"
+        "icon": "https://icon-library.com/images/icon-menu/icon-menu-10.jpg",
+        "href": "/"
     },
     {
         "id": "vouchers",
         "name": "Khuyến mãi",
-        "icon": "https://cdn-icons-png.freepik.com/512/3837/3837136.png"
+        "icon": "https://cdn-icons-png.freepik.com/512/3837/3837136.png",
+        "href": "/coupon"
     },
     {
         "id": "cart",

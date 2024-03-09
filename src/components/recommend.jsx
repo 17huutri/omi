@@ -59,7 +59,7 @@ const RecommendContent = () => {
     // };
     return (
         <div className="container mx-auto ">
-            <Page className="section-container ">
+            <Page className="section-container overflow-hidden">
                 <div className="overflow-x-auto px-2 py-2 bg-yellow-100 shadow-md rounded-lg">
                     <Text.Title size="normal">Sản phẩm bán chạy</Text.Title>
 
