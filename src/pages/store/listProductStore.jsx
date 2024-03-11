@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Box, Button } from "zmp-ui";
+import { Box } from "zmp-ui";
 import { useParams } from "react-router-dom";
 
+import api from "../../api/api.js"
 import '../../css/productStore.scss'
+
 
 const ListProductStore = () => {
     const [products, setProducts] = useState([]);
@@ -18,7 +19,7 @@ const ListProductStore = () => {
             try {
                 const pageNumber = 1;
                 const pageSize = 100;
-                const response = await axios.get(`https://onlinemarket-api.nguyenminhhai.us/api/v1/products-in-store/${storeId}?page_number=${pageNumber}&page_size=${pageSize}`);
+                const response = await api.get(`/products-in-store/${storeId}?page_number=${pageNumber}&page_size=${pageSize}`);
                 setProducts(response.data.data)
             } catch (error) {
                 console.error("Error fetching products in store:", error);
