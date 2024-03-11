@@ -12,7 +12,11 @@
         font-size: 22px;
         margin: 4px;
         padding-top: 2px;
-    }   
+    }  
+    
+    .text {
+        margin-bottom: 30px;
+    }
 }
 
 .store-list {
@@ -26,13 +30,19 @@
         margin-bottom: 20px;
         box-sizing: border-box;
         text-align: center;
+
+        p {
+            text-align: center;
+            font-size: 13px;
+        }
     }
 
     .store-logo {
-        width: 69.3px;
-        height:  69.3px;
+        width: 39.3px;
+        height:  39.3px;
         align-items: center;
         margin-left: 10px;
-        border-radius: 20px;
+        border-radius: 10px;
+        margin-left: 20px;
     }
 }
