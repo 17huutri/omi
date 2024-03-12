@@ -25,7 +25,9 @@ const mockNavigations = [
     {
         "id": "notice",
         "name": "Thông báo",
-        "icon": "https://w7.pngwing.com/pngs/537/580/png-transparent-bell-notification-communication-information-icon.png"
+        "icon": "https://w7.pngwing.com/pngs/537/580/png-transparent-bell-notification-communication-information-icon.png",
+        "href": "/nofication"
+    
     },
     {
         "id": "account",
