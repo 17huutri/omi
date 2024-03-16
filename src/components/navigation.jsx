@@ -6,7 +6,7 @@ import '../css/navigation.scss'
 const mockNavigations = [
     {
         "id": "products",
-        "name": "Sản phẩm",
+        "name": "Danh mục",
         "icon": "https://icon-library.com/images/icon-menu/icon-menu-10.jpg",
         "href": "/"
     },
