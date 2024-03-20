@@ -8,6 +8,7 @@ import UserProfile from "../pages/user-profile";
 import DetailCategory from "./detailCategory";
 import CouponCode from './couponv2';
 import Nofication from './nofication';
+import DetailProductInStore from './detailProductInStore';
 const Layout = () => {
     return (
         <Box flex flexDirection="column" className="h-screen">
@@ -16,6 +17,7 @@ const Layout = () => {
                 <Route path="/nofication" element={<Nofication />} />
                 <Route path="/coupon" element={<CouponCode />} />
                 <Route path="/cart" element={<CartPage />} />
+                <Route path="/product/:id" element={<DetailProductInStore />} />
                 <Route path="/user-profile" element={<UserProfile />} />
                 <Route path="/detail-category/:id" element={<DetailCategory />} />
             </Routes>

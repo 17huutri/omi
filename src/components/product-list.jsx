@@ -64,6 +64,7 @@ const ProductList = () => {
             const updatedCart = { ...cart };
             const existingOrderDetail = orderDetails.find(detail => detail.ProductInStoreId === product.ProductInStoreId);
             let orderDetailIdToUpdate;
+            console.log(existingOrderDetail);
 
             if (existingOrderDetail) {
                 orderDetailIdToUpdate = existingOrderDetail.OrderDetailId;

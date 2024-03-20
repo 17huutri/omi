@@ -14,6 +14,8 @@ const HomePage = () => {
       <SearchBar />
 
       <Banner />
+      {/* <generateQRCode /> */}
+      {/* <SearchInStore /> */}
       <Categoryv />
       <Recommend />
       <ProductList />

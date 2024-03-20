@@ -15,25 +15,25 @@ const store = createStore({
 
   },
   actions: {
-    //     setUser({ state }, user) {
-    //       state.user = user
-    //       saveUserToCache(user)
-    //     },
+    setUser({ state }, user) {
+      state.user = user
+      saveUserToCache(user)
+    },
 
-    //     async login({ dispatch }) {
-    //       const cachedUser = await loadUserFromCache()
-    //       if (cachedUser) {
-    //         dispatch('setUser', cachedUser)
-    //       }
-    //       const token = await getAccessToken()
-    //       const success = await login(token)
-    //       if (success) {
-    //         const user = await getCurrentUser()
-    //         if (user) {
-    //           dispatch('setUser', user)
-    //         }
-    //       }
-    //     }
+    async login({ dispatch }) {
+      const cachedUser = await loadUserFromCache()
+      if (cachedUser) {
+        dispatch('setUser', cachedUser)
+      }
+      const token = await getAccessToken()
+      const success = await login(token)
+      if (success) {
+        const user = await getCurrentUser()
+        if (user) {
+          dispatch('setUser', user)
+        }
+      }
+    }
   },
 }
 )

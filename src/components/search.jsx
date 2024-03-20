@@ -8,8 +8,8 @@ const SearchBar = () => {
 
   return (
     <div className="search-bar">
-      <input type="text" placeholder="Search..." onChange={handleSearch} />
-      <button type="submit">Search</button>
+      <input type="text" placeholder="Tìm kiếm sản phẩm..." onChange={handleSearch} />
+      <button type="submit">Tìm kiếm</button>
     </div>
   );
 };
