@@ -8,6 +8,12 @@ import {
 import Layout from './layout';
 import store from '../store'
 
+// import BottomNavigationPage from './bottom-navigation'
+import SearchSuggestions from './searchSuggestions';
+
+import { Route } from 'react-router-dom';
+
+
 
 
 const MyApp = () => {
@@ -25,11 +31,12 @@ const MyApp = () => {
   return (
     <RecoilRoot>
       <App {...zmpparams} >
-        {/* <SnackbarProvider> */}
-        <ZMPRouter>
-          <Layout />
-        </ZMPRouter>
-        {/* </SnackbarProvider> */}
+        <SnackbarProvider>
+          <ZMPRouter>
+            <Layout />
+          </ZMPRouter>
+        </SnackbarProvider>
+
         {/* <BottomNavigationPage /> */}
       </App>
     </RecoilRoot>
