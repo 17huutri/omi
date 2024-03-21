@@ -27,13 +27,13 @@ const Banner = () => {
                             alt="slide-2"
                         />
                     </Swiper.Slide>
-                    <Swiper.Slide>
+                    {/* <Swiper.Slide>
                         <img
                             className="slide-img"
                             src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/6214f1103270429.5f492a4120fed.png"
                             alt="slide-3"
                         />
-                    </Swiper.Slide>
+                    </Swiper.Slide> */}
                     <Swiper.Slide>
                         <img
                             className="slide-img"
