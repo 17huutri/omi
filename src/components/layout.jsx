@@ -15,37 +15,44 @@ import Signup from '../pages/signup';
 
 const ProtectedRoute = ({ element: Element, ...rest }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    useEffect(() => {
-        const userLoggedIn = localStorage.getItem('isLoggedIn');
-        setIsLoggedIn(userLoggedIn === 'true');
-    }, []);
-
-    useEffect(() => {
-        console.log("isLoggedIn:", isLoggedIn);
-    }, [isLoggedIn]);
-
-    if (!isLoggedIn) {
-        return <Navigate to="/login" />;
+    const navigateRoute = (userLoggedIn) => {
+        if (!userLoggedIn) {
+            console.log("hihih", isLoggedIn);
+            return <Navigate to="/login" />;
+        } else return <Route {...rest} element={<Element />} />;
     }
 
-    return <Route {...rest} element={<Element />} />; // Sử dụng element như là một child của Route
+    useEffect(() => {
+
+        const userLoggedIn = localStorage.getItem('isLoggedIn');
+        console.log(userLoggedIn)
+        navigateRoute(userLoggedIn)
+        if (userLoggedIn) {
+            setIsLoggedIn(true);
+            console.log("haha", isLoggedIn);
+
+        } else setIsLoggedIn(false)
+    }, []);
+
+
 };
 
 const Layout = () => {
+    const [showNavigation, setShowNavigation] = useState(false);
+
     return (
         <Box flex flexDirection="column" className="h-screen">
             <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                {/* <Route path="/" element={<ProtectedRoute element={<HomePage />} />} />
-                <Route path="/notification" element={<ProtectedRoute element={<Notification />} />} />
-                <Route path="/coupon" element={<ProtectedRoute element={<CouponCode />} />} />
-                <Route path="/cart" element={<ProtectedRoute element={<CartPage />} />} />
-                <Route path="/product/:id" element={<ProtectedRoute element={<DetailProductInStore />} />} />
-                <Route path="/user-profile" element={<ProtectedRoute element={<UserProfile />} />} />
-                <Route path="/detail-category/:id" element={<ProtectedRoute element={<DetailCategory />} />} />
-                <Route path="/listproductstore/:storeId" element={<ProtectedRoute element={<ListProductStore />} />} /> */}
+                <Route path="/login" element={<Login setShowNavigation={setShowNavigation} />} />
+                <Route path="/signup" element={<Signup setShowNavigation={setShowNavigation} />} />
+                {/* <Route path="/" element={<ProtectedRoute element={HomePage} />} />
+                <Route path="/notification" element={<ProtectedRoute element={Notification} />} />
+                <Route path="/coupon" element={<ProtectedRoute element={CouponCode} />} />
+                <Route path="/cart" element={<ProtectedRoute element={CartPage} />} />
+                <Route path="/product/:id" element={<ProtectedRoute element={DetailProductInStore} />} />
+                <Route path="/user-profile" element={<ProtectedRoute element={UserProfile} />} />
+                <Route path="/detail-category/:id" element={<ProtectedRoute element={DetailCategory} />} />
+                <Route path="/listproductstore/:storeId" element={<ProtectedRoute element={ListProductStore} />} /> */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/notification" element={<Notification />} />
                 <Route path="/coupon" element={<CouponCode />} />

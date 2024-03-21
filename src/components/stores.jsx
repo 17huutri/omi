@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+
 import { Box } from "zmp-ui";
-
 import '../css/store.scss'
-import { APIURL } from "../api/constant_api.js";
-
-
-
+import { Link } from "react-router-dom";
 
 const Store = () => {
     const [stores, setStores] = useState([]);
@@ -16,7 +13,7 @@ const Store = () => {
             try {
                 const pageNumber = 1;
                 const pageSize = 100;
-                const respone = await APIURL.get(`/store?page_number=${pageNumber}&page_size=${pageSize}`);
+                const respone = await axios.get(`https://onlinemarket-api.nguyenminhhai.us/api/v1/store?page_number=${pageNumber}&page_size=${pageSize}`);
                 setStores(respone.data.data)
                 // console.log("Response:", respone.data.data);
 

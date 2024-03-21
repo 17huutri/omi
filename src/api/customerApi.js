@@ -10,8 +10,11 @@ const customerApi = {
         const url = `/customer/login`
         return axiosClient.post(url, params);
     },
+    getCustomerById(customerId) {
+        const url = `/customer/${customerId}`;
 
-
+        return axiosClient.get(url, { params });
+    }
 };
 
 export default customerApi;

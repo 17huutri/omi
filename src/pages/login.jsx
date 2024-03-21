@@ -18,7 +18,7 @@ const Login = () => {
             };
 
             const response = await customerApi.loginCustomer(params);
-            setIsLoggedIn(true);
+            // setIsLoggedIn(true);
             store.dispatch('setUser', response.data);
             localStorage.setItem('isLoggedIn', 'true');
             navigate('/');
@@ -28,9 +28,6 @@ const Login = () => {
         }
     };
 
-    useEffect(() => {
-        console.log("Giá trị mới của isLoggedIn:", isLoggedIn);
-    }, [isLoggedIn]);
 
     return (
         <Box flex={1} justifyContent="center" alignItems="center">
