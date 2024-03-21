@@ -8,13 +8,6 @@ import {
 import Layout from './layout';
 import store from '../store'
 
-// import BottomNavigationPage from './bottom-navigation'
-import SearchSuggestions from './searchSuggestions';
-
-import { Route } from 'react-router-dom';
-
-
-
 
 const MyApp = () => {
   const zmpparams = {
@@ -23,10 +16,10 @@ const MyApp = () => {
     store: store,
   }
 
-  // zmpready(() => {
-  //   // Call ZMP APIs here
-  //   store.dispatch('login')
-  // })
+  zmpready(() => {
+    // Call ZMP APIs here
+    store.dispatch('login')
+  })
 
   return (
     <RecoilRoot>
@@ -37,7 +30,6 @@ const MyApp = () => {
           </ZMPRouter>
         </SnackbarProvider>
 
-        {/* <BottomNavigationPage /> */}
       </App>
     </RecoilRoot>
   );

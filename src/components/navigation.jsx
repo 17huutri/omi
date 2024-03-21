@@ -13,6 +13,7 @@ const mockNavigations = [
     {
         "id": "vouchers",
         "name": "Khuyến mãi",
+        "href": "/coupon",
         "icon": "https://cdn-icons-png.flaticon.com/128/9551/9551915.png"
     },
     {
