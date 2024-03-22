@@ -12,10 +12,10 @@ import DetailStore from './productInStore';
 import WalletTransaction from "./addMoney";
 import DetailProductInStore from "./detailProductInStore";
 import ListProductStore from "../pages/store/listProductStore";
+import CustomerOrder from "./customer-order";
+import InforOrder from "./infor-of-order";
 import Login from "../pages/login";
 import Signup from "../pages/signup";
-
-
 
 const Layout = () => {
     return (
@@ -23,9 +23,7 @@ const Layout = () => {
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-
                 <Route path="/home" element={<HomePage />} />
-
                 <Route path="/notification" element={<Notification />} />
                 <Route path="/coupon" element={<CouponCode />} />
                 <Route path="/cart" element={<CartPage />} />
@@ -34,10 +32,9 @@ const Layout = () => {
                 <Route path="/user-profile" element={<UserProfile />} />
                 <Route path="/detail-category/:id" element={<DetailCategory />} />
                 <Route path="/customer/:id" element={<WalletTransaction />} />
-                <Route
-                    path="/listproductstore/:storeId"
-                    element={<ListProductStore />}
-                />
+                <Route path="/customer-order/:id" element={<CustomerOrder />} />
+                <Route path="/order-detail/order/:orderId" element={<InforOrder />} />
+                <Route path="/listproductstore/:storeId" element={<ListProductStore />} />
             </Routes>
             <Navigation />
         </Box>

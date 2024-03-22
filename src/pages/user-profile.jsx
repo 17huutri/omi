@@ -40,7 +40,7 @@ const UserProfile = () => {
                     </List.Item>
 
                     <List.Item suffix={<Icon icon="zi-chevron-right" />}>
-                        <div onClick={() => navigate("/about")}>Đơn hàng của tôi</div>
+                        <div onClick={() => navigate("/customer-order/:id")}>Đơn hàng của tôi</div>
                     </List.Item>
                     <List.Item>
                         <div className="packageDetail">
