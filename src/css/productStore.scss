@@ -1,0 +1,84 @@
+.list-products {
+    background-color: #E5EFEF ;
+    .products-box {
+        .card{
+            background-color: white;
+            margin: 5px 0px 10px 17px;
+            border: 0px solid white;
+            border-radius: 14px;
+            height: 210px;
+            width: 160px;
+        }
+        .text {
+            margin: 20px;
+            font-size: 19px;
+            text-align: center;
+            color: #3AB6DE ;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+            padding: 12px;
+            border: 1px solid  white ;
+            border-radius: 12px;
+            background-color: white  ;
+        }
+
+        .products-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            
+        }
+
+        .product-info {
+            width: calc(70% - 10px);
+
+            margin: 20px;
+
+        }
+
+        .product-info:nth-child(odd) {
+            margin-right: 10px;
+        }
+
+        .product-image {
+            width: 120px;
+            border-radius: 8px;
+            margin-left: 11px;
+
+
+        }
+
+        .product-info p {
+            margin: 10px 0px 0px 13px;
+            font-size: 18px;
+            color: #62C9F0;
+            text-align: center;
+        }
+
+        .product-info .price {
+            font-size: 14px;
+            color: #C5C6C6;
+            font-weight: bold;
+        }
+
+        
+
+        button {
+            height: 40px;
+            font-size: 20px;
+            width: 50px;
+            // border: 1px solid #ccc; 
+            border-radius: 5px;
+            // background-color: #f0f0f0;
+            cursor: pointer;
+            margin-left: 58px;
+
+            img {
+                color: #62C9F0;
+                width: 40px;
+                height: 40px;
+                background-color: white;
+            }
+          }
+
+    }
+}

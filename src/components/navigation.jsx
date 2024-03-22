@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Icon } from "zmp-ui";
+import { Link } from 'react-router-dom'; // Import thẻ Link từ react-router-dom
 
-import '../css/navigation.scss'
+import '../css/navigation.scss';
 
 const mockNavigations = [
     {
         "id": "products",
-        "name": "Sản phẩm",
-        "icon": "https://icon-library.com/images/icon-menu/icon-menu-10.jpg",
+        "name": "Danh mục",
+        "icon": "https://cdn-icons-png.flaticon.com/128/9643/9643115.png",
         "href": "/"
     },
     {
         "id": "vouchers",
         "name": "Khuyến mãi",
-        "icon": "https://cdn-icons-png.freepik.com/512/3837/3837136.png",
-        "href": "/coupon"
+        "href": "/coupon",
+        "icon": "https://cdn-icons-png.flaticon.com/128/9551/9551915.png"
     },
     {
         "id": "cart",
         "name": "Giỏ hàng",
-        "icon": "https://cdn-icons-png.freepik.com/512/8170/8170696.png",
+        "icon": "https://cdn-icons-png.flaticon.com/128/5337/5337564.png",
         "href": "/cart"
     },
     {
         "id": "notice",
         "name": "Thông báo",
-        "icon": "https://w7.pngwing.com/pngs/537/580/png-transparent-bell-notification-communication-information-icon.png",
-        "href": "/nofication"
-    
+        "icon": "https://cdn-icons-png.flaticon.com/128/5001/5001519.png",
+        "href": "/notification"
     },
     {
         "id": "account",
         "name": "Tài khoản",
-        "icon": "https://cdn-icons-png.flaticon.com/512/10453/10453654.png",
+        "icon": "https://cdn-icons-png.flaticon.com/128/3024/3024605.png",
         "href": "/user-profile"
     },
 ];
@@ -52,12 +52,12 @@ const Navigation = () => {
         <Box>
             <div className="navigation-container">
                 {navigations.map(navigation => (
-                    <a href={navigation.href} className="navigation" key={navigation.id}>
+                    <Link to={navigation.href} className="navigation" key={navigation.id}> {/* Sử dụng thẻ Link thay vì thẻ a */}
                         <div className='info'>
                             <img className="navigation-icon" src={navigation.icon} alt={navigation.name} />
                             <p className="navigation-name">{navigation.name}</p>
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
         </Box>

@@ -1,19 +1,20 @@
 import React from "react";
 import { Avatar, Box, Text } from "zmp-ui";
+import { useRecoilValue } from "recoil";
+import { userState } from "../state";
 
-const UserCard = ({ user }) => {
+const UserCard = () => {
+    const user = useRecoilValue(userState);
+
     return (
         <Box flex>
-            <Avatar
-                story="default"
-                online
-                src={user.avatar.startsWith("http") ? user.avatar : null}
-            >
-                {user.avatar}
+            <Avatar>
+
+                {user.data.Image}
             </Avatar>
             <Box ml={4}>
-                <Text.Title>{user.name}</Text.Title>
-                <Text>{user.id}</Text>
+                <Text.Title>{user.data.Name}</Text.Title>
+                <Text>{user.data.Phone}</Text>
             </Box>
         </Box>
     );

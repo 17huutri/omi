@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { List, Page, Icon, useNavigate, Input, Box } from "zmp-ui";
 import { useRecoilValue } from "recoil";
 import { userState } from "../state";
@@ -10,6 +10,17 @@ import "../css/user-profile.scss";
 const UserProfile = () => {
     const user = useRecoilValue(userState);
     const navigate = useNavigate();
+
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        const userLoggedIn = localStorage.getItem("isLoggedIn");
+        if (userLoggedIn == "false" || userLoggedIn == undefined) {
+            navigate("/");
+        } else setLoading(true);
+    }, []);
+    if (!loading) {
+        return null;
+    }
     return (
         <Page className="page">
             <div className="section-container">
