@@ -1,4 +1,3 @@
-
 import { createStore } from 'zmp-core/lite'
 
 const store = createStore({
@@ -35,30 +34,22 @@ const store = createStore({
   },
 });
 
-// Lưu thông tin người dùng vào cache (localStorage)
 const saveUserToCache = (user) => {
   localStorage.setItem('user', JSON.stringify(user));
 };
 
-// Lấy thông tin người dùng từ cache (localStorage)
 const loadUserFromCache = () => {
   const userJson = localStorage.getItem('user');
   return userJson ? JSON.parse(userJson) : null;
 };
 
-// Hàm lấy access token từ server
 const getAccessToken = async () => {
-  // Implement logic to get access token from server
 };
 
-// Hàm đăng nhập với access token
 const login = async (token) => {
-  // Implement login logic using the access token
 };
 
-// Hàm lấy thông tin người dùng từ server
 const getCurrentUser = async () => {
-  // Implement logic to get current user from server
 };
 
 export default store;

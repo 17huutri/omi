@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Icon } from "zmp-ui";
+import { Link } from 'react-router-dom'; // Import thẻ Link từ react-router-dom
 
-import '../css/navigation.scss'
+import '../css/navigation.scss';
 
 const mockNavigations = [
     {
@@ -25,7 +26,8 @@ const mockNavigations = [
     {
         "id": "notice",
         "name": "Thông báo",
-        "icon": "https://cdn-icons-png.flaticon.com/128/5001/5001519.png"
+        "icon": "https://cdn-icons-png.flaticon.com/128/5001/5001519.png",
+        "href": "/notification"
     },
     {
         "id": "account",
@@ -50,12 +52,12 @@ const Navigation = () => {
         <Box>
             <div className="navigation-container">
                 {navigations.map(navigation => (
-                    <a href={navigation.href} className="navigation" key={navigation.id}>
+                    <Link to={navigation.href} className="navigation" key={navigation.id}> {/* Sử dụng thẻ Link thay vì thẻ a */}
                         <div className='info'>
                             <img className="navigation-icon" src={navigation.icon} alt={navigation.name} />
                             <p className="navigation-name">{navigation.name}</p>
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
         </Box>
