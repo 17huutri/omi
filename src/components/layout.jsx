@@ -11,6 +11,8 @@ import ProductList from './product';
 import CouponCode from './couponv2';
 import Nofication from './nofication';
 import DetailProductInStore from './detailProductInStore';
+import DetailStore from './productInStore';
+import WalletTransaction from "./addMoney";
 const Layout = () => {
     return (
         <Box flex flexDirection="column" className="h-screen">
@@ -21,8 +23,10 @@ const Layout = () => {
                 <Route path="/coupon" element={<CouponCode />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/product/:id" element={<DetailProductInStore />} />
+                <Route path="/detail-store/:id" element={<DetailStore />} />
                 <Route path="/user-profile" element={<UserProfile />} />
                 <Route path="/detail-category/:id" element={<DetailCategory />} />
+                <Route path="/customer/:id" element={<WalletTransaction />} />
             </Routes>
             <Navigation />
         </Box>
