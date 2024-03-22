@@ -2,17 +2,22 @@ import React, { useState, useEffect } from "react";
 import { Text } from "zmp-ui";
 import productInStoreApi from "./../api/productInStoreApi";
 import orderDetailApi from "./../api/orderDetailApi";
+import { useRecoilValue } from "recoil";
+import { userState } from "../state";
+
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState({});
-    const [customerId, setCustomerId] = useState(31);
+    const user = useRecoilValue(userState);
+    const customerId = user.data.CustomerId
     const [orderDetails, setOrderDetails] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
+                console.log('customerId', customerId);
                 const response = await productInStoreApi.getProductInStore();
                 setProducts(response.data.data);
                 setLoading(false);
@@ -69,7 +74,7 @@ const ProductList = () => {
             if (existingOrderDetail) {
                 orderDetailIdToUpdate = existingOrderDetail.OrderDetailId;
             } else {
-                console.error("Order detail not found for product:", product.Name);
+                console.error("Order detail not found for product:", product.ProductInStoreId);
                 return;
             }
 

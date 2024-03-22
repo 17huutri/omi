@@ -18,6 +18,10 @@ const UserProfile = () => {
             navigate("/");
         } else setLoading(true);
     }, []);
+    const handleLogout = () => {
+        localStorage.setItem("isLoggedIn", "false");
+        navigate("/");
+    };
     if (!loading) {
         return null;
     }
@@ -29,6 +33,13 @@ const UserProfile = () => {
             <div className="section-container">
                 <List>
                     <List.Item suffix={<Icon icon="zi-chevron-right" />}>
+                        <div >Số dư hiện có:</div>
+                    </List.Item>
+                    <List.Item suffix={<Icon icon="zi-chevron-right" />}>
+                        <div onClick={() => navigate("/customer/:id")}>Nạp tiền vào ví</div>
+                    </List.Item>
+
+                    <List.Item suffix={<Icon icon="zi-chevron-right" />}>
                         <div onClick={() => navigate("/about")}>Đơn hàng của tôi</div>
                     </List.Item>
                     <List.Item>
@@ -38,6 +49,8 @@ const UserProfile = () => {
                             <div onClick={() => navigate("/user")}>Lịch sử</div>
                         </div>
                     </List.Item>
+
+
                 </List>
             </div>
             <div className="section-container">
@@ -65,6 +78,9 @@ const UserProfile = () => {
                         suffix={<Icon icon="zi-chevron-right" />}
                     >
                         Giới thiệu bạn bè
+                    </List.Item>
+                    <List.Item suffix={<Icon icon="zi-chevron-right" />}>
+                        <div onClick={handleLogout}>Đăng xuất</div>
                     </List.Item>
                 </List>
             </div>

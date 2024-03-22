@@ -3,11 +3,13 @@ import { Text } from "zmp-ui";
 import orderDetailApi from "../../api/orderDetailApi";
 import orderApi from "../../api/orderApi";
 import { Link } from "react-router-dom"; // Import Link component from react-router-dom
-
+import { useRecoilValue } from "recoil";
+import { userState } from "../../state";
 const Cart = () => {
     const [orderDetails, setOrderDetails] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [customerId, setCustomerId] = useState(31);
+    const user = useRecoilValue(userState);
+    const customerId = user.data.CustomerId
 
     useEffect(() => {
         const fetchOrderDetails = async () => {

@@ -1,10 +1,10 @@
 import axiosClient from "./axiosClient";
 const customerOrderApi = {
-  
+
     getAllCustomerOrderByCustomer(customerId) {
-        const url = `/order-detail/customer/${customerId}`;
+        const url = `/customer-order/customer/${customerId}`;
         const params = {
-            status: 0
+            status: "pending"
         };
         return axiosClient.get(url, { params });
     }
