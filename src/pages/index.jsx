@@ -7,7 +7,12 @@ import {
 import Recommend from '../components/recommend';
 import Banner from '../components/banner';
 import ProductList from '../components/product-list';
+
+import Product from '../components/product';
+import CustomerInfo from '../components/customer';
+
 import Store from '../components/stores';
+
 
 
 const HomePage = () => {
@@ -15,13 +20,17 @@ const HomePage = () => {
     <Page className="home">
       <SearchBar />
 
+
       <Banner />
       {/* <generateQRCode /> */}
       {/* <SearchInStore /> */}
       <Store />
+
       <Categoryv />
       <Recommend />
       <ProductList />
+      <CustomerInfo />
+       
     </Page>
   );
 }
