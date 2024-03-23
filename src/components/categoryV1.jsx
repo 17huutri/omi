@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from "react";
 import categoriesApi from "../api/categoriesApi";
 import { Link } from "react-router-dom";
-// import "../css/categoryV1.css";
-// Mock categories data
 const Icons = {
-  3: "https://static.vecteezy.com/system/resources/previews/001/889/602/large_2x/fresh-vegetables-flat-style-icon-free-vector.jpg",
+  1: "https://cdn-www.vinid.net/2019/09/Nen-chon-loai-hoa-qua-bieu-Tet-2019-nao.jpg",
 
-  4: "https://nicktrition.netlify.app/images/fruits.svg",
+  2: "https://th.bing.com/th/id/OIP.dDm4b5VSi5s4dQLGw2EqAAEsC7?w=275&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
 
-  5: "https://thumbs.dreamstime.com/b/spices-coffee-tea-solid-icon-time-concept-seasoning-sign-white-background-beans-anise-cinnamon-lemon-glyph-style-192649218.jpg",
+  3: "https://tapchinhabep.net/wp-content/uploads/2020/04/MBP1frame2ok.jpg",
 
-  6: "https://th.bing.com/th/id/OIP.yTiifKN7yZ0KUL4g1Z4R0QHaHa?rs=1&pid=ImgDetMain",
+  4: "https://th.bing.com/th/id/R.423efeaa95aa88c33bb669d6bde7adf9?rik=yTTC5v17COqgCA&pid=ImgRaw&r=0",
 
-  7: "https://th.bing.com/th/id/R.a7885169aa46dac79fc2a907f1703991?rik=d1RjfIRl90XM4Q&pid=ImgRaw&r=0",
+  5: "https://vietmartjp.com/wp-content/uploads/2021/05/gia-vi-viet-pham-viet-o-nhat-vietmart.jpg",
 
-  8: "https://i.pinimg.com/736x/b2/c4/b4/b2c4b4b5b3541120ec3b53187ecbcb1a.jpg",
-  9: "https://cdn-icons-png.flaticon.com/512/5318/5318688.png",
-  10: "https://thumbs.dreamstime.com/z/frozen-food-icon-supermarket-shopping-mall-related-vector-illustration-216865371.jpg",
-  11: "https://th.bing.com/th/id/OIP.g9qpvwIvDTOE6jiskOz8XwHaHa?rs=1&pid=ImgDetMain",
+  6: "https://th.bing.com/th/id/R.ce927c037e7a8fc94712be8f2bf77227?rik=JVFg%2fCwqJEyVoQ&riu=http%3a%2f%2ftuvangiayphep24h.com%2fimg_data%2fimages%2ffood303517555180.jpg&ehk=9B%2bOEjyY9UypKdAoXrYLwNMfLnpTiJGIOQ0WZNq72W0%3d&risl=&pid=ImgRaw&r=0",
+  7: "https://cdn-icons-png.flaticon.com/512/5318/5318688.png",
+  8: "https://thumbs.dreamstime.com/z/frozen-food-icon-supermarket-shopping-mall-related-vector-illustration-216865371.jpg",
+  9: "https://th.bing.com/th/id/OIP.g9qpvwIvDTOE6jiskOz8XwHaHa?rs=1&pid=ImgDetMain",
 };
 
-// Add more mock categories as needed
 
-// Category component
 const Categoryv = () => {
   const [categories, setCategories] = useState([]);
 
@@ -51,7 +47,7 @@ const Categoryv = () => {
                 src={Icons[category.CategoryId]}
                 alt={category.CategoryName}
               />
-              <p className=" text-center truncate">{category.CategoryName}</p>
+              <p className=" text-center">{category.CategoryName}</p>
             </div>
           </Link>
         </div>

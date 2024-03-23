@@ -10,9 +10,8 @@ const SearchBar = () => {
 
   return (
     <div className="search-bar">
-      {/* <input type="text" placeholder="Search..." onChange={handleSearch} /> */}
-      <input type="text" placeholder="Search..." onClick={() => { navigate("/searchPage") }} />
-      <button type="submit">Search</button>
+      <input type="text" placeholder="Tìm kiếm sản phẩm..." onClick={() => { navigate("/searchPage") }} />
+      <button type="submit">Tìm kiếm</button>
     </div>
   );
 };

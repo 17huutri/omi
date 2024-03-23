@@ -12,9 +12,9 @@ const customerApi = {
     },
     getCustomerById(customerId) {
         const url = `/customer/${customerId}`;
+        return axiosClient.get(url);
+    },
 
-        return axiosClient.get(url, { params });
-    }
 };
 
 export default customerApi;

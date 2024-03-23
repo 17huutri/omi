@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Box } from "zmp-ui";
 import HomePage from "../pages";
@@ -18,6 +18,7 @@ import Login from "../pages/login";
 import Signup from "../pages/signup";
 
 const Layout = () => {
+
     return (
         <Box flex flexDirection="column" className="h-screen">
             <Routes>

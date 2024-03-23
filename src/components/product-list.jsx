@@ -17,12 +17,10 @@ const ProductList = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                console.log('customerId', customerId);
                 const response = await productInStoreApi.getProductInStore();
                 setProducts(response.data.data);
                 setLoading(false);
             } catch (error) {
-                console.error("Error fetching products: ", error);
                 setLoading(false);
             }
         };
@@ -32,7 +30,6 @@ const ProductList = () => {
                 const response = await orderDetailApi.getAllOrderDetailsByCustomer(customerId);
                 setOrderDetails(response.data);
             } catch (error) {
-                console.error("Error fetching order details: ", error);
             }
         };
 
@@ -60,7 +57,6 @@ const ProductList = () => {
                 setOrderDetails([...orderDetails, response.data]);
             }
         } catch (error) {
-            console.error("Error adding product to cart: ", error);
         }
     };
 
@@ -69,12 +65,10 @@ const ProductList = () => {
             const updatedCart = { ...cart };
             const existingOrderDetail = orderDetails.find(detail => detail.ProductInStoreId === product.ProductInStoreId);
             let orderDetailIdToUpdate;
-            console.log(existingOrderDetail);
 
             if (existingOrderDetail) {
                 orderDetailIdToUpdate = existingOrderDetail.OrderDetailId;
             } else {
-                console.error("Order detail not found for product:", product.ProductInStoreId);
                 return;
             }
 
@@ -96,22 +90,18 @@ const ProductList = () => {
             setCart(updatedCart);
             await orderDetailApi.updateProductQuantity(orderDetailIdToUpdate, updatedCart[product.ProductInStoreId]);
         } catch (error) {
-            console.error("Error updating product quantity: ", error);
         }
     };
-
 
     if (loading) {
         return <div>Loading...</div>;
     }
 
     return (
-        <div className="mx-auto">
-            <div className="flex flex-col py-4">
-                <Text.Title size="normal">Sản phẩm ưu đãi:</Text.Title>
-
+        <div className="font-bold text-xl text-white" > Sản phẩm ưu đãi
+            <div className="mx-auto flex flex-wrap justify-center">
                 {products.map((product) => (
-                    <div key={product.Name} className="flex-shrink-0 mb-4">
+                    <div key={product.Name} className="mb-4 mx-4 text-black font-bold">
                         <div className="w-64 flex flex-col">
                             <div className="relative aspect-video rounded-lg bg-cover bg-center bg-skeleton shadow-md" style={{ backgroundImage: `url(${product.Image})` }}>
                                 {product.Price && (
@@ -156,6 +146,7 @@ const ProductList = () => {
                 ))}
             </div>
         </div>
+
     );
 };
 

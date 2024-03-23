@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, Icon } from "zmp-ui";
-import { Link } from 'react-router-dom'; // Import thẻ Link từ react-router-dom
+import { Box } from "zmp-ui";
+import { Link } from 'react-router-dom';
 
 import '../css/navigation.scss';
 
@@ -42,23 +42,20 @@ const Navigation = () => {
     const [navigations, setNavigations] = useState([]);
 
     useEffect(() => {
-        // Simulate fetching categories from API
-        // In a real application, you will fetch data using fetch or axios
         setNavigations(mockNavigations);
     }, []);
 
 
     return (
         <Box>
-            <div className="navigation-container">
-                {navigations.map(navigation => (
-                    <Link to={navigation.href} className="navigation" key={navigation.id}> {/* Sử dụng thẻ Link thay vì thẻ a */}
-                        <div className='info'>
-                            <img className="navigation-icon" src={navigation.icon} alt={navigation.name} />
-                            <p className="navigation-name">{navigation.name}</p>
-                        </div>
-                    </Link>
-                ))}
+            <div className="navigation-container relative grid grid-cols-5 gap-4 p-4 z-50">                {navigations.map(navigation => (
+                <Link to={navigation.href} className="navigation" key={navigation.id}>
+                    <div className='info'>
+                        <img className="navigation-icon" src={navigation.icon} alt={navigation.name} />
+                        <p className="navigation-name">{navigation.name}</p>
+                    </div>
+                </Link>
+            ))}
             </div>
         </Box>
     );

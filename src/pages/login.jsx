@@ -22,7 +22,9 @@ const Login = () => {
             };
 
             const response = await customerApi.loginCustomer(params);
+            console.log(response.data.data.Balance)
             localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("balance", response.data.data.Balance);
             store.dispatch("setUser", response.data);
 
             navigate("/home");

@@ -12,3 +12,4 @@ const depositToWallet = async (walletId, amount) => {
 };
 
 export default depositToWallet;
+

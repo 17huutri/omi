@@ -7,9 +7,20 @@ const customerOrderApi = {
             status: "pending"
         };
         return axiosClient.get(url, { params });
+    },
+
+    payOrder: async (customerId, customerOrderId) => {
+        const url = `/customer-order`;
+        const data = {
+            customerId: customerId,
+            customerOrderId: customerOrderId
+        };
+
+        const response = await axiosClient.put(url, data);
+        return response.data;
     }
-
-
 };
+
+
 
 export default customerOrderApi;

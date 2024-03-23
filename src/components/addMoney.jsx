@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import customerApi from "../api/customerApi";
+import { useRecoilValue } from "recoil";
+import { userState } from "../state";
 
 const WalletTransaction = () => {
   const [walletData, setWalletData] = useState({});
   const [amountToAdd, setAmountToAdd] = useState(0);
+  const user = useRecoilValue(userState);
+  const customerId = user.data.CustomerId;
 
   const fetchWalletData = async () => {
     try {
@@ -18,11 +23,21 @@ const WalletTransaction = () => {
 
   const addMoneyToWallet = async () => {
     try {
-      const response = await axios.put(
-        "https://onlinemarket-api.nguyenminhhai.us/api/v1/deposit/wallet/11",
-        { amount: amountToAdd }
-      );
+      const customerResponse = await customerApi.getCustomerById(customerId);
+      const customerData = customerResponse.data;
+      console.log(customerData);
+      const balance = parseInt(localStorage.getItem('balance'));
+      const amount = parseInt(amountToAdd);
+      const newBalance = balance + amount;
 
+
+      const walletId = customerData.WalletId;
+      const response = await axios.put(
+        `https://onlinemarket-api.nguyenminhhai.us/api/v1/deposit/wallet/${walletId}`,
+        { amount: amountToAdd }
+
+      )
+      localStorage.setItem('balance', newBalance);
 
       const zaloPayUrl = response.data.url;
 
@@ -37,9 +52,8 @@ const WalletTransaction = () => {
   }, []);
 
   return (
-
     <div className="flex flex-col items-center">
-      <h2 className="text-xl font-bold mb-4">Số dư Ví: {walletData.Balance}</h2>
+      <h2 className="text-xl font-bold mb-4"> {walletData.Balance}</h2>
       <input
         type="number"
         value={amountToAdd}

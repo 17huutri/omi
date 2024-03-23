@@ -13,18 +13,15 @@ const DetailCategory = () => {
         const res = await productInStoreApi.getProductInStore();
         setProductStore(res.data.data);
       } catch (err) {
-        console.log(err);
       }
     };
     dataProduct();
   }, []);
 
   const findProductByCategoryId = productStore.filter(
-    // (product) => product.CategoryId === id
     (product) => id.includes(product.CategoryId)
   );
 
-  // const Total = product.Price - product.Discount;
 
   return (
     <div className="">
@@ -56,16 +53,16 @@ const DetailCategory = () => {
                   >
                     {product.Discount
                       ? (
-                          product.Price -
-                          (product.Price * product.Discount) / 100
-                        ).toLocaleString("vi-VN", {
-                          style: "currency",
-                          currency: "VND",
-                        })
+                        product.Price -
+                        (product.Price * product.Discount) / 100
+                      ).toLocaleString("vi-VN", {
+                        style: "currency",
+                        currency: "VND",
+                      })
                       : product.Price.toLocaleString("vi-VN", {
-                          style: "currency",
-                          currency: "VND",
-                        })}
+                        style: "currency",
+                        currency: "VND",
+                      })}
                   </Text>
                   <Text size="large" className="line-through text-gray">
                     {product.Price} đ

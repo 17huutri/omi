@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Text } from "zmp-ui";
+import { Text, useNavigate } from "zmp-ui";
 import orderDetailApi from "../../api/orderDetailApi";
 import orderApi from "../../api/orderApi";
-import { Link } from "react-router-dom"; // Import Link component from react-router-dom
+import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../state";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Cart = () => {
     const [orderDetails, setOrderDetails] = useState([]);
     const [loading, setLoading] = useState(true);
     const user = useRecoilValue(userState);
-    const customerId = user.data.CustomerId
+    const customerId = user.data.CustomerId;
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchOrderDetails = async () => {
@@ -57,7 +61,6 @@ const Cart = () => {
                 await orderDetailApi.updateProductQuantity(orderDetail.OrderDetailId, updatedOrderDetails[index].ProductQuantity);
             }
         } catch (error) {
-            console.error("Error updating product quantity: ", error);
         }
     };
 
@@ -71,10 +74,15 @@ const Cart = () => {
     const handlePlaceOrder = async () => {
         try {
             const orderDetailIds = orderDetails.map(orderDetail => orderDetail.OrderDetailId);
-            const buildingId = 5;
+            const buildingId = user.data.BuildingId;
+
             await orderApi.mergeOrder(orderDetailIds, buildingId);
 
-            console.log("Order placed successfully!");
+            toast.info("Đang tiến hành đặt hàng! Mời bạn đến trang Thanh Toán...");
+
+            setTimeout(() => {
+                navigate("/customer-order/:id");
+            }, 3000);
         } catch (error) {
             console.error("Error placing order: ", error);
         }
@@ -115,6 +123,8 @@ const Cart = () => {
                         </div>
                     ))
                 )}
+
+
                 {orderDetails.length > 0 && (
                     <div className="flex justify-center mt-4">
                         <button type="button" className="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-blue-500" onClick={handlePlaceOrder}>Đặt hàng - Tổng tiền: {calculateTotalPrice().toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</button>

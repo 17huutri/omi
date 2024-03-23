@@ -10,7 +10,7 @@ import "../css/user-profile.scss";
 const UserProfile = () => {
     const user = useRecoilValue(userState);
     const navigate = useNavigate();
-
+    const balance = localStorage.getItem("balance");
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         const userLoggedIn = localStorage.getItem("isLoggedIn");
@@ -20,6 +20,7 @@ const UserProfile = () => {
     }, []);
     const handleLogout = () => {
         localStorage.setItem("isLoggedIn", "false");
+        localStorage.clear();
         navigate("/");
     };
     if (!loading) {
@@ -33,7 +34,7 @@ const UserProfile = () => {
             <div className="section-container">
                 <List>
                     <List.Item suffix={<Icon icon="zi-chevron-right" />}>
-                        <div >Số dư hiện có:</div>
+                        <div >Số dư hiện có: {balance} đ </div>
                     </List.Item>
                     <List.Item suffix={<Icon icon="zi-chevron-right" />}>
                         <div onClick={() => navigate("/customer/:id")}>Nạp tiền vào ví</div>

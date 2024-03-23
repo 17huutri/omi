@@ -1,6 +1,6 @@
 import React from 'react';
 import { ZMPRouter, App, SnackbarProvider } from 'zmp-ui';
-
+import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
 import {
   zmpready
@@ -24,6 +24,7 @@ const MyApp = () => {
   return (
     <RecoilRoot>
       <App {...zmpparams} >
+        <ToastContainer />
         <SnackbarProvider>
           <ZMPRouter>
             <Layout />
