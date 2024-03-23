@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { List, Page, Icon, useNavigate, Input, Box } from "zmp-ui";
 import { useRecoilValue } from "recoil";
 import { userState } from "../state";
@@ -10,6 +10,22 @@ import "../css/user-profile.scss";
 const UserProfile = () => {
     const user = useRecoilValue(userState);
     const navigate = useNavigate();
+    const balance = localStorage.getItem("balance");
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        const userLoggedIn = localStorage.getItem("isLoggedIn");
+        if (userLoggedIn == "false" || userLoggedIn == undefined) {
+            navigate("/");
+        } else setLoading(true);
+    }, []);
+    const handleLogout = () => {
+        localStorage.setItem("isLoggedIn", "false");
+        localStorage.clear();
+        navigate("/");
+    };
+    if (!loading) {
+        return null;
+    }
     return (
         <Page className="page">
             <div className="section-container">
@@ -18,7 +34,14 @@ const UserProfile = () => {
             <div className="section-container">
                 <List>
                     <List.Item suffix={<Icon icon="zi-chevron-right" />}>
-                        <div onClick={() => navigate("/about")}>Đơn hàng của tôi</div>
+                        <div >Số dư hiện có: {balance} đ </div>
+                    </List.Item>
+                    <List.Item suffix={<Icon icon="zi-chevron-right" />}>
+                        <div onClick={() => navigate("/customer/:id")}>Nạp tiền vào ví</div>
+                    </List.Item>
+
+                    <List.Item suffix={<Icon icon="zi-chevron-right" />}>
+                        <div onClick={() => navigate("/customer-order/:id")}>Đơn hàng của tôi</div>
                     </List.Item>
                     <List.Item>
                         <div className="packageDetail">
@@ -27,6 +50,8 @@ const UserProfile = () => {
                             <div onClick={() => navigate("/user")}>Lịch sử</div>
                         </div>
                     </List.Item>
+
+
                 </List>
             </div>
             <div className="section-container">
@@ -54,6 +79,9 @@ const UserProfile = () => {
                         suffix={<Icon icon="zi-chevron-right" />}
                     >
                         Giới thiệu bạn bè
+                    </List.Item>
+                    <List.Item suffix={<Icon icon="zi-chevron-right" />}>
+                        <div onClick={handleLogout}>Đăng xuất</div>
                     </List.Item>
                 </List>
             </div>

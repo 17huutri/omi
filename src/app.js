@@ -2,7 +2,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+import ZMP from 'zmp-framework/core/lite-bundle'
 
+// Import ZMP-React Plugin
+import ZMPReact from 'zmp-framework/react'
 // Import tailwind styles
 import './css/tailwind.css';
 
@@ -17,6 +20,8 @@ import appConfig from '../app-config.json';
 if (!window.APP_CONFIG) {
   window.APP_CONFIG = appConfig;
 }
+ZMP.use(ZMPReact)
+
 
 // Mount React App
 const root = createRoot(document.getElementById('app'));
